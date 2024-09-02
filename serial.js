@@ -26,6 +26,9 @@ const validDevices = [
  */
 function findValidPort(ports) {
   for (const port of ports) {
+    if (port.vendorId == null || port.productId == null) {
+      continue
+    }
     const vendorId = port.vendorId.toLowerCase();
     const productId = port.productId.toLowerCase();
     for (const validDevice of validDevices) {
